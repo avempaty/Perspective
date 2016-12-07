@@ -10,7 +10,7 @@ public class GetScore : MonoBehaviour {
 		txt = GameObject.Find ("Highscores").GetComponent<Text> ();
 		r = PlayerPrefs.GetFloat ("highscore");
 		txt.text = "Best Score\n" + r.ToString ("0.00") + " s";
-
+		PlayerPrefs.DeleteAll ();
 	
 	}
 	
