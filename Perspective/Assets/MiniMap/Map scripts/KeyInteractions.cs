@@ -33,7 +33,7 @@ public class KeyInteractions : MonoBehaviour {
 				print("hi");
 				Vector3 coor = new Vector3 (0, -1, 0);
 				Physics.gravity = coor * 10;
-				Application.LoadLevel ("Map 2 (button)");
+				//Application.LoadLevel ("Map 2 (button)");
 			}
 		}
 		//if (keyClip == true) {

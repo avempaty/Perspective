@@ -5,6 +5,7 @@ public class MapInteractions : MonoBehaviour {
 
 	bool showSubs = false;
 	string sub;
+	//float timer = 0.0f;
 	float timeLeft = 5.0f;
 	private GUIStyle g = new GUIStyle();
 	bool button1 = false;
@@ -14,6 +15,7 @@ public class MapInteractions : MonoBehaviour {
 	public GameObject buttonClick;
 	public GameObject buttonCylinder;
 	public GameObject buttonPlane;
+	public GameObject player;
 	bool keyIsFound = false;
 	public bool keyClip = false;
 	void Update () {
@@ -94,6 +96,19 @@ public class MapInteractions : MonoBehaviour {
 		if (other.gameObject.CompareTag ("door")) {
 			if (keyIsFound == true) {
 				//other.gameObject.SetActive (false);
+				if (PlayerPrefs.HasKey ("highscore") == false) {
+					PlayerPrefs.SetFloat ("highscore", 0.0f);
+					PlayerPrefs.Save ();
+				}
+				player = GameObject.Find("PlayerRobot");
+				float time = player.GetComponent<TimeTrialController> ().timer;
+				print (time);
+				//TimeTrialController time = player.GetComponent<TimeTrialController>();
+				if (time < PlayerPrefs.GetFloat ("highscore") || PlayerPrefs.GetFloat("highscore") == 0.0f) {
+					PlayerPrefs.SetFloat ("highscore", time);
+					PlayerPrefs.Save ();
+					print(PlayerPrefs.GetFloat("highscore"));
+				}
 				print("hi");
 				Vector3 coor = new Vector3 (0, -1, 0);
 				Physics.gravity = coor * 10;
