@@ -1,2 +1,2 @@
 # Perspective
-Unity 5 game that is super cool and awesome
+Unity 5 3D virtual reality game that defies the law of physics to make for a more pleasurable puzzle gaming experience.
